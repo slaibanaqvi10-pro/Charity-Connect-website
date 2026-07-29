@@ -1,0 +1,181 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charity Connect - Gallery</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #c07346;
+            color: white;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #9c4f28;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            font-weight: bold;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #ff7f50;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover::after { width: 100%; }
+
+        .logo { width: 55px; margin-right: 10px; }
+
+        /* PAGE TITLE */
+        section {
+            padding: 60px 60px 30px 60px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.25);
+            font-size: 38px;
+        }
+
+        p {
+            font-size: 18px;
+            max-width: 850px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* MASONRY GRID */
+        .masonry {
+            column-count: 3;
+            column-gap: 20px;
+            padding: 30px 60px;
+        }
+
+        .masonry img {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+            transition: 0.3s ease;
+            break-inside: avoid;
+        }
+
+        .masonry img:hover {
+            transform: scale(1.05);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .masonry { column-count: 2; padding: 20px; }
+        }
+
+        @media (max-width: 600px) {
+            .masonry { column-count: 1; padding: 15px; }
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 40px;
+            background: white;
+            color: #9c4f28;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div style="display:flex;align-items:center;">
+        <img src="{% static 'image/logoo.png' %}" class="logo">
+        <h2>Charity Connect</h2>
+    </div>
+
+    <ul>
+         <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'donate' %}">Donate</a></li>
+            <li><a href="{% url 'campaign_list' %}">Campaign</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+
+    </ul>
+</nav>
+
+<section>
+    <h1>Our Gallery</h1>
+    <p>Some highlights from our relief missions, community programs, and global charity efforts.</p>
+</section>
+
+<!-- MASONRY GRID -->
+<div class="masonry">
+    <img src="{% static 'image/activity1.jfif' %}">
+    <img src="{% static 'image/activity2.jfif' %}">
+    <img src="{% static 'image/activity3.jfif' %}">
+    <img src="{% static 'image/activity4.jfif' %}">
+    <img src="{% static 'image/activity5.jfif' %}">
+    <img src="{% static 'image/activity6.jfif' %}">
+    <img src="{% static 'image/gazaa.jpg' %}">
+    <img src="{% static 'image/image.jfif' %}">
+    <img src="{% static 'image/user1.jfif' %}">
+    <img src="{% static 'image/user2.jfif' %}">
+    <img src="{% static 'image/user3.jfif' %}">
+</div>
+
+<footer>
+    <b>© 2025 CharityConnect • Empowering Communities Together</b>
+</footer>
+
+</body>
+</html>

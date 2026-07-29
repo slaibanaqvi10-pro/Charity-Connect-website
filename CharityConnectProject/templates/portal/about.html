@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charity Connect - About</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #c07346;
+            color: white;
+        }
+
+        /* HEADER */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #9c4f28;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            font-weight: bold;
+            position: relative;
+            transition: .3s;
+        }
+
+        /* Orange underline hover */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #ff7f50;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .logo {
+            width: 55px;
+            margin-right: 10px;
+        }
+
+        /* MAIN SECTION */
+         section {
+            padding: 70px 60px;
+            text-align: center;      /* CENTER TEXT */
+        }
+
+         section h1, section h2 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.25);
+            font-size: 36px;
+        }
+
+        section p {
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto 20px auto;   /* CENTER BLOCK */
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.3);
+            line-height: 1.7;
+        }
+
+        /* BUTTON */
+        .btn {
+            padding: 12px 25px;
+            background: #ff7f50;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #e76b3d;
+        }
+
+        /* GALLERY */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+
+        .gallery img {
+            width: calc(33.33% - 18px);
+            height: 220px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery img {
+                width: 100%;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            background: white;
+            color: #9c4f28;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+            box-shadow: 0 -3px 8px rgba(0,0,0,0.15);
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div style="display:flex;align-items:center;">
+        <img src="{% static 'image/logoo.png' %}" class="logo">
+        <h2>Charity Connect</h2>
+    </div>
+
+    <ul>
+         <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'donate' %}">Donate</a></li>
+            <li><a href="{% url 'campaign_list' %}">Campaign</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+
+    </ul>
+</nav>
+
+
+<!-- ABOUT US -->
+<section>
+    <h1>About Us</h1>
+
+    <p>
+        Charity Connect is a global non-profit organization dedicated to empowering children, families,
+        and vulnerable communities. We work to ensure that every child has access to education, healthcare,
+        nutrition, and protection.
+    </p>
+
+    <p>
+        Our mission is to create sustainable change—providing not just immediate relief, but long-term
+        solutions that help communities thrive. With the support of compassionate donors and volunteers,
+        we strive to build a world where every child has the opportunity to live, learn, and succeed.
+    </p>
+
+    <p>
+        We believe that hope is the strongest form of help. Together, we can create brighter futures
+        and meaningful impact for generations to come.
+    </p>
+</section>
+
+<!-- SUPPORT -->
+<section>
+
+    <h2 style="margin-top: 50px;">Our Activities</h2>
+    <p>Some glimpses of our community programs and relief initiatives:</p>
+
+    <div class="gallery">
+        <img src="{% static 'image/activity1.jfif' %}" alt="">
+        <img src="{% static 'image/activity2.jfif' %}" alt="">
+        <img src="{% static 'image/activity3.jfif' %}" alt="">
+        <img src="{% static 'image/activity4.jfif' %}" alt="">
+        <img src="{% static 'image/activity5.jfif' %}" alt="">
+        <img src="{% static 'image/activity6.jfif' %}" alt="">
+    </div>
+</section>
+
+<footer>
+    <b>© 2025 CharityConnect • Empowering Communities Together</b>
+</footer>
+
+</body>
+</html>

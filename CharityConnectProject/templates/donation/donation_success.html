@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donation Successful - CharityConnect</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #c07346;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* NAV BAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #9c4f28;
+            font-size: 26px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            font-weight: bold;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #ff7f50;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .logo {
+            width: 55px;
+            margin-right: 10px;
+        }
+
+        /* MAIN CONTENT CONTAINER */
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin-top: 90px; /* To avoid overlap with fixed header */
+            margin-bottom: 60px; /* To avoid overlap with fixed footer */
+        }
+
+        /* SUCCESS BOX */
+        .success-container {
+            background: white;
+            color: #9c4f28;
+            max-width: 550px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            width: 100%;
+        }
+
+        .success-icon {
+            font-size: 70px;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: #ff7f50;
+            padding: 12px 25px;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #e76b3d;
+        }
+
+        /* FOOTER */
+        footer {
+            background: white;
+            color: #9c4f28;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAV BAR -->
+<nav>
+    <div style="display:flex;align-items:center;">
+        <img src="{% static 'image/logoo.png' %}" class="logo" alt="Charity Connect Logo" />
+        <h2>Charity Connect</h2>
+    </div>
+
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+        <li><a href="{% url 'donate' %}">Donate</a></li>
+    </ul>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+    <div class="success-container">
+        <div class="success-icon">✔</div>
+        <h2>Donation Successful!</h2>
+        <p>Thank you for your kindness and generosity.<br>
+           Your support truly makes a difference.</p>
+
+        <a class="btn" href="{% url 'home' %}">Go Back to Home</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <b>© 2025 CharityConnect • Empowering Communities Together</b>
+</footer>
+
+</body>
+</html>

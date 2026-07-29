@@ -1,0 +1,339 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CharityConnect - Services</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #c07346;
+            color: white;
+            margin-top: 90px;
+        }
+
+        /* NAVIGATION */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 50px;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav h2 {
+            font-family: 'Poppins', sans-serif;
+            color: #9c4f28;
+            font-size: 26px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 17px;
+            font-weight: bold;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: #ff7f50;
+            left: 0;
+            bottom: -5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover::after { width: 100%; }
+
+        .logo { width: 55px; margin-right: 10px; }
+
+        /* SECTION GENERAL */
+        section {
+            padding: 70px 60px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 20px;
+            font-size: 36px;
+
+        }
+
+        p {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        /* SERVICE CARDS */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            color: #9c4f28;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .service-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .learn-btn {
+            padding: 12px 25px;
+            background: #ff7f50;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .learn-btn:hover { background: #e76b3d; }
+
+        /* WHY CHOOSE US */
+        .why-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 25px;
+            color: #9c4f28;
+            border-radius: 12px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+
+        /* TIMELINE */
+        .timeline {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            background: white;
+            color: #9c4f28;
+            padding: 25px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            width: 220px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .test-card {
+            width: 300px;
+            background: white;
+            color: #9c4f28;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            text-align: left;
+        }
+
+        .test-card img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* CTA */
+        .cta {
+            margin-top: 60px;
+            background: white;
+            color: #9c4f28;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btns button {
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+            background: #ffb774;
+            color: #6f3518;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cta-btns button:hover { background: #ffa24d; }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            background: white;
+            color: #9c4f28;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAV BAR -->
+<nav>
+    <div style="display:flex;align-items:center;">
+        <img src="{% static 'image/logoo.png' %}" class="logo" />
+        <h2>Charity Connect</h2>
+    </div>
+
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+            <li><a href="{% url 'donate' %}">Donate</a></li>
+            <li><a href="{% url 'campaign_list' %}">Campaign</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+
+
+    </ul>
+</nav>
+
+<!-- SERVICES OVERVIEW -->
+<section>
+    <h1>Our Services</h1>
+    <p>We provide essential support to uplift communities and create long-lasting impact.</p>
+
+    <div class="services-container">
+
+        <div class="service-card">
+            <div class="service-icon">🍲</div>
+            <h3>Food Distribution</h3>
+            <p>Monthly ration bags and hot meals for families in need.</p>
+            <button class="learn-btn">Learn More</button>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">📚</div>
+            <h3>Education Support</h3>
+            <p>School fees, uniforms, bags, and scholarship programs.</p>
+            <button class="learn-btn">Learn More</button>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">💉</div>
+            <h3>Healthcare Programs</h3>
+            <p>Free medical camps, medicines, and doctor consultations.</p>
+            <button class="learn-btn">Learn More</button>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Rehabilitation & Shelter</h3>
+            <p>Safe housing, emergency shelter, and long-term rehabilitation programs.</p>
+            <button class="learn-btn">Learn More</button>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section>
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+
+        <div class="test-card">
+            <img src="{% static 'image/user1.jfif' %}" />
+            <p>"Charity Connect changed our lives with their education support. Forever grateful!"</p>
+        </div>
+
+        <div class="test-card">
+            <img src="{% static 'image/user2.jfif' %}" />
+            <p>"The food program helped us survive during the toughest months."</p>
+        </div>
+
+        <div class="test-card">
+            <img src="{% static 'image/user3.jfif' %}" />
+            <p>"Their medical camps provide care we could never afford."</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Want to Support Our Mission?</h2>
+    <p>Your contribution can help transform lives. Join us in making a real impact.</p>
+    <div class="cta-btns">
+        <a href="{% url 'donate' %}"><button class="learn-btn">Donate Now</button></a>
+         <a href="{%  url 'register' %}">
+                    <button class="learn-btn">Become a Volunteer</button>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <b>© 2025 CharityConnect • Empowering Communities Together</b>
+</footer>
+
+</body>
+</html>
