@@ -34,7 +34,7 @@ Example:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/Charity-Connect-website.git
+   git clone https://github.com/slaibanaqvi10-pro/Charity-Connect-website.git
    ```
 2. Open the project folder:
    ```bash
